@@ -70,45 +70,44 @@ This system helps store owners and managers efficiently **track stock levels, ma
 
 
 
-Open the project in Visual Studio
+## 🚀 Getting Started
 
-Set up the database
+### 🔧 Prerequisites
+- **Visual Studio** (Latest version recommended)  
+- **Microsoft SQL Server**  
+- **.NET Framework 4.7+**  
 
-Open SQL Server
+### 📥 Installation
+1. **Open the project in Visual Studio**  
+2. **Set up the database**  
+   - Open **SQL Server**  
+   - Execute the provided `database_script.sql`  
+3. **Run the application**  
 
-Execute the provided database_script.sql
+---
 
-Run the application
+## 🔒 Security Features
+✔️ **Role-Based Authentication** (Admins & Users)  
+✔️ **Secure Login System** with Encrypted Passwords  
+✔️ **SQL Injection Prevention** using Parameterized Queries  
+✔️ **Data Validation** for Secure Inputs  
 
-🔒 Security Features
-Role-Based Authentication (Admins & Users)
+---
 
-Secure Login System with Encrypted Passwords
+## 🏆 Contributing
+Pull requests are welcome! If you want to contribute:  
 
-SQL Injection Prevention using Parameterized Queries
-
-Data Validation for Secure Inputs
-
-🏆 Contributing
-Pull requests are welcome! If you want to contribute:
-
-Fork the repo
-
-Create a feature branch (git checkout -b feature-name)
-
-Commit your changes (git commit -m "Added new feature")
-
-Push to the branch (git push origin feature-name)
-
-Create a Pull Request
-
-📜 License
+1. **Fork the repo**  
+2. **Create a feature branch**  
+   ```bash
+   git checkout -b feature-name
+## 📜 License
 This project is open-source and available under the MIT License.
 
 
 
 
-📩 Contact
+## 📩 Contact
 For any issues or suggestions, feel free to reach out:
 📧 Email: arslan.jameel8532@gamil.com
 📌 GitHub: Arslan8532
