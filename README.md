@@ -1,113 +1,45 @@
-# 🏪 Store Management System
+# The Bouncy Castle Cryptography Library For .NET
+[![NuGet](https://img.shields.io/nuget/dt/BouncyCastle.Cryptography.svg)](https://www.nuget.org/packages/BouncyCastle.Cryptography) [![NuGet](https://img.shields.io/nuget/vpre/BouncyCastle.Cryptography.svg)](https://www.nuget.org/packages/BouncyCastle.Cryptography)
 
-The **Store Management System** is a **Windows-based desktop application** designed to streamline the management of **products, categories, inventory, and users**.  
+The Bouncy Castle Cryptography library is a .NET implementation of cryptographic algorithms and protocols. It was developed by the Legion of the Bouncy Castle, a registered Australian Charity, with a little help! The Legion, and the latest goings on with this package, can be found at [https://www.bouncycastle.org](https://www.bouncycastle.org).
 
-This system helps store owners and managers efficiently **track stock levels, manage product categories, and monitor sales**, all while ensuring secure access through **role-based authentication**.
+In addition to providing basic cryptography algorithms, the package also provides support for CMS, OpenPGP, (D)TLS, TSP, X.509 certificate generation and more. The package also includes implementations of the following NIST Post-Quantum Cryptography Standardization algorithms: CRYSTALS-Dilithium, CRYSTALS-Kyber, Falcon, SPHINCS+, Classic McEliece, FrodoKEM, NTRU, NTRU Prime, Picnic, Saber, BIKE, and SIKE. These should all be considered EXPERIMENTAL and subject to change or removal. SIKE in particular is already slated for removal and should be used for research purposes only.
 
-## 🚀 Features
-✅ **Product Management** – Add, Edit, Delete, View Products  
-✅ **Stock Monitoring** – Track product quantities in real-time  
-✅ **Category Management** – Organize products into different categories  
-✅ **User Authentication** – Secure login for Admins & Users  
-✅ **Modern UI Design** – Smooth animations, rounded panels, and gradients  
-✅ **Database Integration** – Uses **SQL Server** for secure data storage  
+The Legion also gratefully acknowledges the contributions made to this package by others (see [here](https://www.bouncycastle.org/csharp/contributors.html) for the current list). If you would like to contribute to our efforts please feel free to get in touch with us or visit our [donations page](https://www.bouncycastle.org/donate), sponsor some specific work, or purchase a [support contract](https://www.keyfactor.com/platform/bouncy-castle-support/).
 
----
+Except where otherwise stated, this software is distributed under a license based on the MIT X Consortium license. To view the license, [see here](https://www.bouncycastle.org/licence.html). This software includes a modified Bzip2 library, which is licensed under the [Apache Software License, Version 2.0](http://www.apache.org/licenses/). 
 
-## 🛠️ Technologies Used
-- **Programming Language:** C# (.NET Windows Forms)  
-- **Database:** Microsoft SQL Server  
-- **UI Design:** Custom Graphics using GDI+  
-- **Security:** Parameterized SQL Queries (Prevents SQL Injection)  
-- **Version Control:** Git & GitHub  
+**Note**: This source tree is not the FIPS version of the APIs - if you are interested in our FIPS version please visit us [here](https://www.bouncycastle.org/fips-csharp) or contact us directly at [office@bouncycastle.org](mailto:office@bouncycastle.org).
 
----
+## Installing BouncyCastle
+You should install [BouncyCastle with NuGet:](https://www.nuget.org/packages/BouncyCastle.Cryptography)
 
-## 📂 Database Schema
-### 📌 Table: `Products`
-| Column Name | Data Type | Constraints |
-|------------|----------|-------------|
-| `ProdId` | `INT` | Primary Key, Auto Increment |
-| `ProdName` | `VARCHAR(255)` | NOT NULL |
-| `ProdPrice` | `FLOAT` | NOT NULL |
-| `ProdQuantity` | `INT` | NOT NULL |
-| `ProdCat` | `VARCHAR(100)` | Foreign Key (Categories) |
+    Install-Package BouncyCastle.Cryptography
 
-### 📌 Table: `Categories`
-| Column Name | Data Type | Constraints |
-|------------|----------|-------------|
-| `CatId` | `INT` | Primary Key, Auto Increment |
-| `CatName` | `VARCHAR(100)` | NOT NULL |
+Or via the .NET Core command line interface:
 
-### 📌 Table: `Users`
-| Column Name | Data Type | Constraints |
-|------------|----------|-------------|
-| `UserId` | `INT` | Primary Key, Auto Increment |
-| `Username` | `VARCHAR(50)` | UNIQUE, NOT NULL |
-| `Password` | `VARCHAR(255)` | NOT NULL |
-| `Role` | `VARCHAR(50)` | (Admin/User) |
+    dotnet add package BouncyCastle.Cryptography
 
----
-
-## 🎨 UI & Design Features
-- **Rounded Corners & Gradient Backgrounds** using `GraphicsPath`  
-- **Custom Panel Painting for a Modern Look**  
-- **Smooth Transitions & UI Effects using GDI+**  
-- **Dynamic Color Adjustments for Better Readability**  
-
----
-
-## 🚀 Getting Started
-### 🔧 Prerequisites
-- **Visual Studio** (Latest version recommended)  
-- **Microsoft SQL Server**  
-- **.NET Framework 4.7+**  
-
-### 📥 Installation
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/Arslan8532/Store-Management-System.git
+Either commands, from Package Manager Console or .NET Core CLI, will download and install BouncyCastle.Cryptography.
 
 
+## Mailing Lists
 
-## 🚀 Getting Started
+For those who are interested, there are 2 mailing lists for participation in this project. To subscribe use the links below and include the word subscribe in the message body. (To unsubscribe, replace **subscribe** with **unsubscribe** in the message body)
 
-### 🔧 Prerequisites
-- **Visual Studio** (Latest version recommended)  
-- **Microsoft SQL Server**  
-- **.NET Framework 4.7+**  
+*   [announce-crypto-csharp-request@bouncycastle.org](mailto:announce-crypto-csharp-request@bouncycastle.org)  
+    This mailing list is for new release announcements only, general subscribers cannot post to it.
+*   [dev-crypto-csharp-request@bouncycastle.org](mailto:dev-crypto-csharp-request@bouncycastle.org)  
+    This mailing list is for discussion of development of the package. This includes bugs, comments, requests for enhancements, questions about use or operation.
 
-### 📥 Installation
-1. **Open the project in Visual Studio**  
-2. **Set up the database**  
-   - Open **SQL Server**  
-   - Execute the provided `database_script.sql`  
-3. **Run the application**  
+**NOTE:** You need to be subscribed to send mail to the above mailing list.
 
----
+## Feedback 
 
-## 🔒 Security Features
-✔️ **Role-Based Authentication** (Admins & Users)  
-✔️ **Secure Login System** with Encrypted Passwords  
-✔️ **SQL Injection Prevention** using Parameterized Queries  
-✔️ **Data Validation** for Secure Inputs  
+If you want to provide feedback directly to the members of **The Legion** then please use [feedback-crypto@bouncycastle.org](mailto:feedback-crypto@bouncycastle.org). If you want to help this project survive please consider [donating](https://www.bouncycastle.org/donate).
 
----
+For bug reporting/requests you can report issues on [github](https://github.com/bcgit/bc-csharp), or via [feedback-crypto@bouncycastle.org](mailto:feedback-crypto@bouncycastle.org) if required. We will accept pull requests based on this repository as well, but only on the basis that any code included may be distributed under the [Bouncy Castle License](https://www.bouncycastle.org/licence.html).
 
-## 🏆 Contributing
-Pull requests are welcome! If you want to contribute:  
+## Finally
 
-1. **Fork the repo**  
-2. **Create a feature branch**  
-   ```bash
-   git checkout -b feature-name
-## 📜 License
-This project is open-source and available under the MIT License.
-
-
-
-
-## 📩 Contact
-For any issues or suggestions, feel free to reach out:
-📧 Email: arslan.jameel8532@gamil.com
-📌 GitHub: Arslan8532
+Enjoy!
