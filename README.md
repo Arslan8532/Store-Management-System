@@ -31,29 +31,60 @@ This application features **modern UI elements, custom graphical effects, and da
 
 ---
 
-## 📂 Database Schema
-### 📌 Table: `Products`
-| Column Name | Data Type | Constraints |
-|------------|----------|-------------|
-| `ProdId` | `INT` | Primary Key, Auto Increment |
-| `ProdName` | `VARCHAR(255)` | NOT NULL |
-| `ProdPrice` | `FLOAT` | NOT NULL |
-| `ProdQuantity` | `INT` | NOT NULL |
-| `ProdCat` | `VARCHAR(100)` | Foreign Key (Categories) |
+## 🛠️ Database Schema
+The **Store Management System** uses a structured relational database with the following tables:
 
-### 📌 Table: `Categories`
-| Column Name | Data Type | Constraints |
-|------------|----------|-------------|
-| `CatId` | `INT` | Primary Key, Auto Increment |
-| `CatName` | `VARCHAR(100)` | NOT NULL |
+### 📌 `Category`
+| Column Name           | Data Type       | Constraints                      |
+|----------------------|---------------|---------------------------------|
+| `CatId`             | `INT`           | Primary Key, Auto Increment    |
+| `CatName`           | `NCHAR(50)`     | NOT NULL                        |
+| `CatDes`            | `NCHAR(100)`    | NOT NULL                        |
+| `PriceIncreasePercent` | `FLOAT`      | NOT NULL, Default = 0          |
 
-### 📌 Table: `Users`
-| Column Name | Data Type | Constraints |
-|------------|----------|-------------|
-| `UserId` | `INT` | Primary Key, Auto Increment |
-| `Username` | `VARCHAR(50)` | UNIQUE, NOT NULL |
-| `Password` | `VARCHAR(255)` | NOT NULL |
-| `Role` | `VARCHAR(50)` | (Admin/User) |
+---
+
+### 📌 `Product`
+| Column Name  | Data Type   | Constraints                           |
+|-------------|------------|--------------------------------------|
+| `ProdId`    | `INT`      | Primary Key, Auto Increment         |
+| `ProdName`  | `NCHAR(100)` | NOT NULL                            |
+| `ProdPrice` | `FLOAT`    | NOT NULL                            |
+| `ProdQuantity` | `INT`   | NOT NULL                            |
+| `ProdCat`   | `INT`      | Foreign Key → `Category(CatId)`, CASCADE DELETE |
+
+---
+
+### 📌 `Seller`
+| Column Name    | Data Type   | Constraints              |
+|---------------|------------|-------------------------|
+| `SellerId`    | `INT`      | Primary Key, Auto Increment |
+| `SellerName`  | `NCHAR(50)` | NOT NULL               |
+| `SellerAge`   | `INT`      | NOT NULL               |
+| `SellerPhone` | `NCHAR(20)` | NOT NULL               |
+| `SellerPass`  | `NCHAR(50)` | NOT NULL               |
+
+---
+
+### 📌 `Bill`
+| Column Name  | Data Type   | Constraints                           |
+|-------------|------------|--------------------------------------|
+| `BillId`    | `INT`      | Primary Key, Auto Increment         |
+| `SellerId`  | `INT`      | Foreign Key → `Seller(SellerId)`, SET NULL on delete |
+| `SellDate`  | `DATETIME` | Default: `GETDATE()`                |
+| `TotalAmt`  | `FLOAT`    | NOT NULL                            |
+
+---
+
+### 📌 `BillDetails`
+| Column Name   | Data Type   | Constraints                                   |
+|--------------|------------|----------------------------------------------|
+| `BillDetailId` | `INT`     | Primary Key, Auto Increment                 |
+| `BillId`      | `INT`     | Foreign Key → `Bill(BillId)`, CASCADE DELETE |
+| `ProdId`      | `INT`     | Foreign Key → `Product(ProdId)`, CASCADE DELETE |
+| `Quantity`    | `INT`     | NOT NULL                                     |
+| `UnitPrice`   | `FLOAT`   | NOT NULL                                     |
+| `TotalPrice`  | `FLOAT`   | NOT NULL                                     |
 
 ---
 
